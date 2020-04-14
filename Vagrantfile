@@ -7,6 +7,14 @@ Vagrant.configure("2") do |config|
     kali.vm.box = "elrey741/kali-linux_amd64"
     kali.vm.network :private_network, ip: "172.28.128.2"
     kali.vm.hostname = "kali"
+
+    kali.vm.provider "virtualbox" do |vb|
+      vb.gui = true
+    end
+  end
+
+  config.vm.define "ub1404" do |ub1404|
+    ub1404.vm.box = "rapid7/metasploitable3-ub1404"
   end
 
   config.vm.define "ub1404" do |ub1404|
